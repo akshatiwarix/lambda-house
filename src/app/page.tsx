@@ -17,9 +17,9 @@ export default function Home() {
       <EventBanner rsvpUrl={links.rsvpFormUrl} />
       <Header />
       <main id="main-content">
-        <WhatItIs links={links} />
+        <WhatItIs />
         <WhoItsFor />
-        <Faq links={links} />
+        <Faq />
       </main>
       <Footer links={links} />
     </>

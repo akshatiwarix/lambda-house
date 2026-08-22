@@ -21,8 +21,9 @@ predicted, and no placeholder is ever promoted to a public message.
 | Google account | joinlambdahouse@gmail.com | Akshat | — | 2026-08-23 | Akshat | required | no | pending |
 | Google Form — join | Join Lambda House | joinlambdahouse@gmail.com | https://forms.gle/AWaG97XPs3LoUaXW9 | 2026-08-23 | Akshat | inherited | yes | confirmed (see open items) |
 | Luma calendar | Lambda House | joinlambdahouse@gmail.com | — | — | Akshat | required | yes | deferred to ~Aug 30 |
-| WhatsApp group | Lambda House · Tech Chat | Akshat | never published | — | Akshat | two-step on | **no** | pending |
-| WhatsApp channel | Lambda House · Announcements | Akshat | — | — | Akshat | two-step on | yes | pending |
+| WhatsApp Community | Lambda House | Akshat | https://chat.whatsapp.com/El6ybbYnyhL90MMudkbV1G | 2026-08-23 | Akshat | two-step on | **yes, by explicit decision** | confirmed |
+| WhatsApp group (within the Community) | Lambda House · Tech Chat | Akshat | not individually advertised | — | Akshat | two-step on | no | pending |
+| WhatsApp channel (within the Community) | Lambda House · Announcements | Akshat | not individually advertised | — | Akshat | two-step on | no | pending |
 
 ## Reporting and privacy contact
 
@@ -87,7 +88,7 @@ the exact values Vercel prints. Nothing is guessed.
 - [ ] Responses land only in the private owner sheet or Luma guest list.
 - [ ] Luma guest list is set to hidden.
 - [ ] Instagram URL opens publicly.
-- [ ] No WhatsApp invite link appears on any public page.
+- [ ] The published WhatsApp link is the Community link (`.../El6ybbYnyhL90MMudkbV1G`), not a bare group or channel invite.
 - [ ] Vercel production URL recorded above.
 - [ ] Reporting contact is controlled by Akshat.
 - [ ] No placeholder URL remains in this file.

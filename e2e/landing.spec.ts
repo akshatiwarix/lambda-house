@@ -1,18 +1,23 @@
 import { expect, test } from "@playwright/test";
 
-test("visitor understands and reaches both forms", async ({ page }) => {
+const WHATSAPP_COMMUNITY_URL = "https://chat.whatsapp.com/El6ybbYnyhL90MMudkbV1G";
+
+test("visitor understands the community and can join it", async ({ page }) => {
   await page.goto("/");
   await expect(page).toHaveTitle(/Lambda House Kanpur/);
   await expect(
-    page.getByRole("heading", { name: "Kanpur, come talk tech with us." }),
+    page.getByRole("heading", { name: "Bringing people together to talk tech" }),
   ).toBeVisible();
-  await expect(page.getByText("Sun 06 Sep 2026", { exact: false })).toBeVisible();
-  await expect(
-    page.getByRole("link", { name: "Attend the first meetup" }).first(),
-  ).toHaveAttribute("href", "https://lu.ma/rsvp-test");
   await expect(
     page.getByRole("link", { name: "Join Lambda House" }).first(),
-  ).toHaveAttribute("href", "https://forms.google.com/join-test");
+  ).toHaveAttribute("href", WHATSAPP_COMMUNITY_URL);
+});
+
+test("the event banner links to the open RSVP", async ({ page }) => {
+  await page.goto("/");
+  await expect(
+    page.getByRole("link", { name: /RSVP on Luma/ }),
+  ).toHaveAttribute("href", "https://lu.ma/rsvp-test");
 });
 
 test("policy pages are reachable", async ({ page }) => {
@@ -24,11 +29,19 @@ test("policy pages are reachable", async ({ page }) => {
   await expect(page.getByRole("heading", { name: /privacy/i })).toBeVisible();
 });
 
-test("the whatsapp invite is never published", async ({ page }) => {
+test("the whatsapp community link is the exact approved one, everywhere it appears", async ({
+  page,
+}) => {
+  // Publishing this link is a deliberate, confirmed choice (a Community
+  // link, not a bare group invite) - this test guards against a typo or
+  // link rot rather than forbidding it outright.
   for (const path of ["/", "/conduct", "/privacy"]) {
     await page.goto(path);
     const html = await page.content();
-    expect(html).not.toContain("chat.whatsapp.com");
+    const matches = html.match(/chat\.whatsapp\.com\/[A-Za-z0-9]+/g) ?? [];
+    for (const match of matches) {
+      expect(`https://${match}`).toBe(WHATSAPP_COMMUNITY_URL);
+    }
   }
 });
 
