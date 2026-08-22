@@ -9,26 +9,40 @@ export function Closing({ links }: { links: PublicLinks }) {
         No experience required. Curiosity is enough.
       </h2>
       <p className="lede" style={{ marginBottom: "2.25rem" }}>
-        RSVP for the September 6 hangout, or join the community and come to a
-        later one. Both are free.
+        {links.rsvpFormUrl
+          ? "RSVP for the September 6 hangout, or join the community and come to a later one. Both are free."
+          : "Join the community now and you will get the RSVP link before anyone else. It is free, and you can come to any meetup."}
       </p>
       <div className="hero__actions">
-        <a
-          className="btn btn-primary"
-          href={links.rsvpFormUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Attend the first meetup
-        </a>
-        <a
-          className="btn btn-secondary"
-          href={links.joinFormUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Join Lambda House
-        </a>
+        {links.rsvpFormUrl ? (
+          <>
+            <a
+              className="btn btn-primary"
+              href={links.rsvpFormUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Attend the first meetup
+            </a>
+            <a
+              className="btn btn-secondary"
+              href={links.joinFormUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Join Lambda House
+            </a>
+          </>
+        ) : (
+          <a
+            className="btn btn-primary"
+            href={links.joinFormUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Join Lambda House
+          </a>
+        )}
       </div>
     </section>
   );

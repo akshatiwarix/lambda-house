@@ -9,7 +9,7 @@ const isLocal = baseURL.includes("127.0.0.1") || baseURL.includes("localhost");
  */
 const testEnv = {
   NEXT_PUBLIC_JOIN_FORM_URL: "https://forms.google.com/join-test",
-  NEXT_PUBLIC_RSVP_FORM_URL: "https://forms.google.com/rsvp-test",
+  NEXT_PUBLIC_RSVP_FORM_URL: "https://lu.ma/rsvp-test",
   NEXT_PUBLIC_SOCIAL_URL: "https://www.instagram.com/thelambdahouse",
   NEXT_PUBLIC_SITE_URL: "http://127.0.0.1:3000",
 };

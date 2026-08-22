@@ -16,9 +16,11 @@ export function Footer({ links }: { links: PublicLinks }) {
           </p>
         </div>
         <nav className="site-footer__links" aria-label="Footer">
-          <a href={links.rsvpFormUrl} target="_blank" rel="noreferrer">
-            RSVP
-          </a>
+          {links.rsvpFormUrl ? (
+            <a href={links.rsvpFormUrl} target="_blank" rel="noreferrer">
+              RSVP
+            </a>
+          ) : null}
           <a href={links.joinFormUrl} target="_blank" rel="noreferrer">
             Join
           </a>

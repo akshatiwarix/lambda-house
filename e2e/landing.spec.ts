@@ -9,7 +9,7 @@ test("visitor understands and reaches both forms", async ({ page }) => {
   await expect(page.getByText("Sunday, September 6, 2026")).toBeVisible();
   await expect(
     page.getByRole("link", { name: "Attend the first meetup" }).first(),
-  ).toHaveAttribute("href", "https://forms.google.com/rsvp-test");
+  ).toHaveAttribute("href", "https://lu.ma/rsvp-test");
   await expect(
     page.getByRole("link", { name: "Join Lambda House" }).first(),
   ).toHaveAttribute("href", "https://forms.google.com/join-test");

@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { getPublicLinks } from "./public-links";
 
 const valid = {
-  joinFormUrl: "https://forms.google.com/join",
+  joinFormUrl: "https://forms.gle/AWaG97XPs3LoUaXW9",
   rsvpFormUrl: "https://lu.ma/thelambdahouse",
   socialUrl: "https://www.instagram.com/thelambdahouse",
   siteUrl: "https://www.thelambdahouse.com",
@@ -36,5 +36,17 @@ describe("public links", () => {
       getPublicLinks({ ...valid, siteUrl: "https://www.thelambdahouse.com/" })
         .siteUrl,
     ).toBe("https://www.thelambdahouse.com");
+  });
+
+  // The RSVP platform opens closer to the event, so the site has to ship and
+  // stay honest while it does not exist yet.
+  it("treats a missing RSVP link as not-yet-open rather than an error", () => {
+    expect(getPublicLinks({ ...valid, rsvpFormUrl: "" }).rsvpFormUrl).toBeNull();
+  });
+
+  it("still validates the RSVP link once it exists", () => {
+    expect(() =>
+      getPublicLinks({ ...valid, rsvpFormUrl: "http://lu.ma/insecure" }),
+    ).toThrow("Public URL must use HTTPS: rsvpFormUrl");
   });
 });

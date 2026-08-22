@@ -30,6 +30,9 @@ export const nextEvent = {
   timeLabel: "4:00–6:00 PM",
   price: "Free",
   capacityLabel: "Limited by venue capacity",
+  /** Shown wherever an RSVP action would be, while RSVP is not open yet. */
+  rsvpPendingNote:
+    "RSVP opens closer to the date, once the venue is confirmed. Join the community and you will get the link first.",
   venue: {
     status: "pending",
     display: "Kanpur · venue confirmation in progress",

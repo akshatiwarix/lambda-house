@@ -10,10 +10,11 @@ type EventContent = Omit<typeof NextEventContent, "venue"> & { venue: Venue };
 
 type Props = {
   event: EventContent;
-  rsvpUrl: string;
+  rsvpUrl: string | null;
+  joinUrl: string;
 };
 
-export function NextEvent({ event, rsvpUrl }: Props) {
+export function NextEvent({ event, rsvpUrl, joinUrl }: Props) {
   const { venue } = event;
 
   return (
@@ -69,18 +70,34 @@ export function NextEvent({ event, rsvpUrl }: Props) {
         </dl>
 
         <div className="event-card__foot">
-          <a
-            className="btn btn-primary"
-            href={rsvpUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            RSVP for this meetup
-          </a>
-          <p className="event-card__note">
-            Come alone, bring nothing, leave when you like. An RSVP only helps
-            us plan seating.
-          </p>
+          {rsvpUrl ? (
+            <>
+              <a
+                className="btn btn-primary"
+                href={rsvpUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                RSVP for this meetup
+              </a>
+              <p className="event-card__note">
+                Come alone, bring nothing, leave when you like. An RSVP only
+                helps us plan seating.
+              </p>
+            </>
+          ) : (
+            <>
+              <a
+                className="btn btn-primary"
+                href={joinUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Join Lambda House
+              </a>
+              <p className="event-card__note">{event.rsvpPendingNote}</p>
+            </>
+          )}
         </div>
       </div>
     </section>

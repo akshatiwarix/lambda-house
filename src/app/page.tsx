@@ -27,7 +27,11 @@ export default function Home() {
         <Audience />
         <EventFormats />
         <RunOfShow />
-        <NextEvent event={nextEvent} rsvpUrl={links.rsvpFormUrl} />
+        <NextEvent
+          event={nextEvent}
+          rsvpUrl={links.rsvpFormUrl}
+          joinUrl={links.joinFormUrl}
+        />
         <GuidelinesPreview />
         <Faq />
         <Closing links={links} />
