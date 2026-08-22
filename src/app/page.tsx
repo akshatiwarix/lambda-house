@@ -1,5 +1,8 @@
 import { Audience } from "@/components/audience";
+import { Closing } from "@/components/closing";
 import { EventFormats } from "@/components/event-formats";
+import { Faq } from "@/components/faq";
+import { GuidelinesPreview } from "@/components/guidelines-preview";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
@@ -25,6 +28,9 @@ export default function Home() {
         <EventFormats />
         <RunOfShow />
         <NextEvent event={nextEvent} rsvpUrl={links.rsvpFormUrl} />
+        <GuidelinesPreview />
+        <Faq />
+        <Closing links={links} />
       </main>
       <Footer links={links} />
     </>

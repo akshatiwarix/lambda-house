@@ -735,10 +735,23 @@ svg {
   margin: 0 0 1.1rem;
 }
 
+/* Tailwind preflight strips list markers; policy lists need them back. */
 .policy ul,
 .policy ol {
   margin: 0 0 1.5rem;
-  padding-left: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.policy ul {
+  list-style: disc;
+}
+
+.policy ol {
+  list-style: decimal;
+}
+
+.policy li::marker {
+  color: var(--signal-red);
 }
 
 .policy li {
