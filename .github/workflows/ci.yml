@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Isolated test fixtures only. Real launch URLs live in Vercel project
+# settings and must never be copied here.
+env:
+  NEXT_PUBLIC_JOIN_FORM_URL: https://forms.google.com/join-test
+  NEXT_PUBLIC_RSVP_FORM_URL: https://forms.google.com/rsvp-test
+  NEXT_PUBLIC_SOCIAL_URL: https://www.instagram.com/thelambdahouse
+  NEXT_PUBLIC_SITE_URL: http://127.0.0.1:3000
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx playwright install --with-deps chromium
+
+      - run: npm run lint
+
+      - run: npm run typecheck
+
+      - run: npm run test:unit
+
+      - run: npm run build
+
+      - run: npm run test:e2e
