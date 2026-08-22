@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Lambda House mark</title>
+  <desc id="desc">Minimal lambda mark with a signal-red left stroke and a carbon-black right stroke.</desc>
+  <path d="M36 9L53 55" fill="none" stroke="#070707" stroke-width="9" stroke-linecap="round"/>
+  <path d="M35 29L14 55" fill="none" stroke="#FF2A1A" stroke-width="9" stroke-linecap="round"/>
+</svg>

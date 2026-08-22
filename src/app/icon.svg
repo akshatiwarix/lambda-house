@@ -1,13 +1,16 @@
-<!-- Temporary chapter mark, not a final logo. The blueprint defers logo design. -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" fill="#070707" />
-  <text
-    x="32"
-    y="46"
-    fill="#FF2A1A"
-    font-family="'Space Mono', ui-monospace, monospace"
-    font-size="44"
-    font-weight="700"
-    text-anchor="middle"
-  >λ</text>
+<!--
+  Brand lambda mark, geometry unchanged from the logo pack. The carbon stroke
+  is swapped for warm white in dark contexts so the mark stays legible on a
+  dark browser tab, where near-black on near-black disappears. The signal-red
+  stroke is untouched.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Lambda House">
+  <style>
+    .ink { stroke: #070707; }
+    @media (prefers-color-scheme: dark) {
+      .ink { stroke: #F5F2EA; }
+    }
+  </style>
+  <path class="ink" d="M36 9L53 55" fill="none" stroke-width="9" stroke-linecap="round"/>
+  <path d="M35 29L14 55" fill="none" stroke="#FF2A1A" stroke-width="9" stroke-linecap="round"/>
 </svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Lambda House Instagram profile image</title>
+  <desc id="desc">A two-line Lambda House wordmark centred on warm white with spacing for a circular profile crop.</desc>
+  <rect width="1080" height="1080" fill="#F5F2EA"/>
+  <g fill="none" stroke="#070707" stroke-width="14" stroke-linecap="butt" stroke-linejoin="round" transform="translate(23 280) scale(1.5)">
+    <path d="M50 50V170"/>
+    <path d="M165 170V130C165 105 149 90 125 90C101 90 85 107 85 130C85 154 101 170 125 170C145 170 159 158 165 142"/>
+    <path d="M195 170V119C195 101 207 90 224 90C242 90 254 102 254 120V170M254 120C254 102 266 90 283 90C301 90 313 102 313 120V170"/>
+    <path d="M345 50V170M345 130C345 106 361 90 385 90C409 90 425 107 425 130C425 154 409 170 385 170C361 170 345 154 345 130"/>
+    <path d="M530 50V170M530 130C530 106 514 90 490 90C466 90 450 107 450 130C450 154 466 170 490 170C514 170 530 154 530 130"/>
+    <path d="M640 170V130C640 105 624 90 600 90C576 90 560 107 560 130C560 154 576 170 600 170C620 170 634 158 640 142"/>
+  </g>
+  <path d="M974 535H992V517Z" fill="#FF2A1A"/>
+  <g fill="none" stroke="#070707" stroke-width="21" stroke-linecap="butt" stroke-linejoin="round" transform="translate(289 535)">
+    <path d="M0 50V170M0 120C0 102 13 90 31 90C49 90 62 103 62 121V170"/>
+    <path d="M135 90C111 90 95 107 95 130C95 154 111 170 135 170C159 170 175 154 175 130C175 107 159 90 135 90Z"/>
+    <path d="M205 90V138C205 158 219 170 240 170C261 170 275 158 275 138V90M275 90V170"/>
+    <path d="M385 103C376 94 364 90 351 90C334 90 323 99 323 111C323 124 334 129 353 133C373 137 383 144 383 156C383 167 371 174 354 174C338 174 325 168 316 159"/>
+    <path d="M425 132H500C500 106 486 90 464 90C440 90 424 107 424 131C424 155 442 170 467 170C482 170 494 165 503 156"/>
+  </g>
+</svg>

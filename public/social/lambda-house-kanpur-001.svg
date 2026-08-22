@@ -1,6 +1,6 @@
 <!--
-  Launch graphic for Lambda House Kanpur #01. Editable text, approved palette.
-  No logo, no photography, no sponsor marks, and no venue until it is confirmed.
+  Launch graphic for Lambda House Kanpur #01. Approved palette, real wordmark.
+  No photography, no sponsor marks, and no venue until it is confirmed.
 -->
 <svg
   xmlns="http://www.w3.org/2000/svg"
@@ -12,25 +12,23 @@
 >
   <rect width="1080" height="1350" fill="#070707" />
 
-  <!-- Chapter mark -->
-  <text
-    x="88"
-    y="150"
-    fill="#FF2A1A"
-    font-family="'Space Mono', ui-monospace, monospace"
-    font-size="30"
-    font-weight="700"
-    letter-spacing="6"
-  >λ / KNP</text>
-
-  <text
-    x="88"
-    y="200"
-    fill="#A7ABB5"
-    font-family="'Space Mono', ui-monospace, monospace"
-    font-size="26"
-    letter-spacing="5"
-  >LAMBDA HOUSE</text>
+  <!-- Wordmark, 16:3, unmodified geometry reversed to warm white -->
+  <g transform="translate(88 96) scale(0.3125)">
+    <g fill="none" stroke="#F5F2EA" stroke-width="14" stroke-linecap="butt" stroke-linejoin="round">
+      <path d="M50 50V170" />
+      <path d="M165 170V130C165 105 149 90 125 90C101 90 85 107 85 130C85 154 101 170 125 170C145 170 159 158 165 142" />
+      <path d="M195 170V119C195 101 207 90 224 90C242 90 254 102 254 120V170M254 120C254 102 266 90 283 90C301 90 313 102 313 120V170" />
+      <path d="M345 50V170M345 130C345 106 361 90 385 90C409 90 425 107 425 130C425 154 409 170 385 170C361 170 345 154 345 130" />
+      <path d="M530 50V170M530 130C530 106 514 90 490 90C466 90 450 107 450 130C450 154 466 170 490 170C514 170 530 154 530 130" />
+      <path d="M640 170V130C640 105 624 90 600 90C576 90 560 107 560 130C560 154 576 170 600 170C620 170 634 158 640 142" />
+      <path d="M730 50V170M730 120C730 102 743 90 761 90C779 90 792 103 792 121V170" />
+      <path d="M865 90C841 90 825 107 825 130C825 154 841 170 865 170C889 170 905 154 905 130C905 107 889 90 865 90Z" />
+      <path d="M935 90V138C935 158 949 170 970 170C991 170 1005 158 1005 138V90M1005 90V170" />
+      <path d="M1115 103C1106 94 1094 90 1081 90C1064 90 1053 99 1053 111C1053 124 1064 129 1083 133C1103 137 1113 144 1113 156C1113 167 1101 174 1084 174C1068 174 1055 168 1046 159" />
+      <path d="M1155 132H1230C1230 106 1216 90 1194 90C1170 90 1154 107 1154 131C1154 155 1172 170 1197 170C1212 170 1224 165 1233 156" />
+    </g>
+    <path d="M634 170H646V158Z" fill="#FF2A1A" />
+  </g>
 
   <!-- Headline -->
   <text
@@ -40,15 +38,13 @@
     font-weight="700"
     letter-spacing="-4"
   >
-    <tspan x="88" y="500">KANPUR,</tspan>
-    <tspan x="88" y="612">COME TALK</tspan>
-    <tspan x="88" y="724">TECH WITH US.</tspan>
+    <tspan x="88" y="520">KANPUR,</tspan>
+    <tspan x="88" y="632">COME TALK</tspan>
+    <tspan x="88" y="744">TECH WITH US.</tspan>
   </text>
 
-  <!-- Rule -->
-  <rect x="88" y="820" width="904" height="2" fill="#FF2A1A" />
+  <rect x="88" y="840" width="904" height="2" fill="#FF2A1A" />
 
-  <!-- Event metadata -->
   <text
     fill="#F5F2EA"
     font-family="'Space Mono', ui-monospace, monospace"
@@ -56,23 +52,22 @@
     font-weight="700"
     letter-spacing="3"
   >
-    <tspan x="88" y="906">SUNDAY / 06 SEPTEMBER 2026</tspan>
-    <tspan x="88" y="968">16:00–18:00 / KANPUR</tspan>
+    <tspan x="88" y="926">SUNDAY / 06 SEPTEMBER 2026</tspan>
+    <tspan x="88" y="988">16:00–18:00 / KANPUR</tspan>
   </text>
 
-  <!-- Explanation -->
   <text
     fill="#A7ABB5"
     font-family="'Inter', system-ui, sans-serif"
     font-size="36"
   >
-    <tspan x="88" y="1090">No experience required.</tspan>
-    <tspan x="88" y="1142">Curiosity is enough.</tspan>
+    <tspan x="88" y="1110">No experience required.</tspan>
+    <tspan x="88" y="1162">Curiosity is enough.</tspan>
   </text>
 
   <text
     x="88"
-    y="1262"
+    y="1272"
     fill="#FF2A1A"
     font-family="'Space Mono', ui-monospace, monospace"
     font-size="26"
