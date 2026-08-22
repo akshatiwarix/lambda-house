@@ -42,3 +42,7 @@ next-env.d.ts
 
 # gstack
 .gstack/
+
+# playwright
+/test-results/
+/playwright-report/

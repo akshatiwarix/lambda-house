@@ -1,0 +1,82 @@
+<!--
+  Launch graphic for Lambda House Kanpur #01. Editable text, approved palette.
+  No logo, no photography, no sponsor marks, and no venue until it is confirmed.
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1080 1350"
+  width="1080"
+  height="1350"
+  role="img"
+  aria-label="Lambda House Kanpur, come talk tech with us. Sunday 6 September 2026, 16:00 to 18:00."
+>
+  <rect width="1080" height="1350" fill="#070707" />
+
+  <!-- Chapter mark -->
+  <text
+    x="88"
+    y="150"
+    fill="#FF2A1A"
+    font-family="'Space Mono', ui-monospace, monospace"
+    font-size="30"
+    font-weight="700"
+    letter-spacing="6"
+  >λ / KNP</text>
+
+  <text
+    x="88"
+    y="200"
+    fill="#A7ABB5"
+    font-family="'Space Mono', ui-monospace, monospace"
+    font-size="26"
+    letter-spacing="5"
+  >LAMBDA HOUSE</text>
+
+  <!-- Headline -->
+  <text
+    fill="#F5F2EA"
+    font-family="'Funnel Display', 'Inter', sans-serif"
+    font-size="118"
+    font-weight="700"
+    letter-spacing="-4"
+  >
+    <tspan x="88" y="500">KANPUR,</tspan>
+    <tspan x="88" y="612">COME TALK</tspan>
+    <tspan x="88" y="724">TECH WITH US.</tspan>
+  </text>
+
+  <!-- Rule -->
+  <rect x="88" y="820" width="904" height="2" fill="#FF2A1A" />
+
+  <!-- Event metadata -->
+  <text
+    fill="#F5F2EA"
+    font-family="'Space Mono', ui-monospace, monospace"
+    font-size="38"
+    font-weight="700"
+    letter-spacing="3"
+  >
+    <tspan x="88" y="906">SUNDAY / 06 SEPTEMBER 2026</tspan>
+    <tspan x="88" y="968">16:00–18:00 / KANPUR</tspan>
+  </text>
+
+  <!-- Explanation -->
+  <text
+    fill="#A7ABB5"
+    font-family="'Inter', system-ui, sans-serif"
+    font-size="36"
+  >
+    <tspan x="88" y="1090">No experience required.</tspan>
+    <tspan x="88" y="1142">Curiosity is enough.</tspan>
+  </text>
+
+  <text
+    x="88"
+    y="1262"
+    fill="#FF2A1A"
+    font-family="'Space Mono', ui-monospace, monospace"
+    font-size="26"
+    font-weight="700"
+    letter-spacing="4"
+  >FREE · ALL AGES · RSVP ON THE SITE</text>
+</svg>
