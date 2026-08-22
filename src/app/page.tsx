@@ -1,5 +1,6 @@
 import { Audience } from "@/components/audience";
 import { Closing } from "@/components/closing";
+import { EventBanner } from "@/components/event-banner";
 import { EventFormats } from "@/components/event-formats";
 import { Faq } from "@/components/faq";
 import { GuidelinesPreview } from "@/components/guidelines-preview";
@@ -20,6 +21,7 @@ export default function Home() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
+      <EventBanner rsvpUrl={links.rsvpFormUrl} />
       <Header />
       <main id="main-content">
         <Hero links={links} />
