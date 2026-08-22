@@ -19,8 +19,8 @@ predicted, and no placeholder is ever promoted to a public message.
 | GitHub | akshatiwarix/lambda-house | Akshat | https://github.com/akshatiwarix/lambda-house | 2026-08-23 | Akshat | required | yes | pending push |
 | Instagram | @thelambdahouse | Akshat | https://www.instagram.com/thelambdahouse | 2026-08-23 | Akshat | required | yes | pending confirmation |
 | Google account | joinlambdahouse@gmail.com | Akshat | — | 2026-08-23 | Akshat | required | no | pending |
-| Google Form — join | Join Lambda House | joinlambdahouse@gmail.com | — | — | Akshat | inherited | yes | pending |
-| Luma calendar | Lambda House | joinlambdahouse@gmail.com | — | — | Akshat | required | yes | pending |
+| Google Form — join | Join Lambda House | joinlambdahouse@gmail.com | https://forms.gle/AWaG97XPs3LoUaXW9 | 2026-08-23 | Akshat | inherited | yes | confirmed (see open items) |
+| Luma calendar | Lambda House | joinlambdahouse@gmail.com | — | — | Akshat | required | yes | deferred to ~Aug 30 |
 | WhatsApp group | Lambda House · Tech Chat | Akshat | never published | — | Akshat | two-step on | **no** | pending |
 | WhatsApp channel | Lambda House · Announcements | Akshat | — | — | Akshat | two-step on | yes | pending |
 
@@ -48,8 +48,30 @@ The website build fails unless all four are real and HTTPS:
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | https://www.thelambdahouse.com | confirmed |
 | `NEXT_PUBLIC_SOCIAL_URL` | https://www.instagram.com/thelambdahouse | confirmed |
-| `NEXT_PUBLIC_JOIN_FORM_URL` | — | **blocked** on the Google Form |
-| `NEXT_PUBLIC_RSVP_FORM_URL` | — | **blocked** on the Luma event |
+| `NEXT_PUBLIC_JOIN_FORM_URL` | https://forms.gle/AWaG97XPs3LoUaXW9 | confirmed, verified signed-out |
+| `NEXT_PUBLIC_RSVP_FORM_URL` | — | intentionally empty until the Luma event exists |
+
+`NEXT_PUBLIC_RSVP_FORM_URL` is the one optional variable. While it is empty the
+site promotes joining and states that RSVP opens later. Set it to the real Luma
+URL when the event goes up, then redeploy.
+
+## Open items on the join form
+
+Verified live on 2026-08-23. Three deviations from `02-form-specifications.md`:
+
+1. **"How would you like to take part?" is a single-choice question, not
+   checkboxes.** Someone who wants WhatsApp *and* meetups *and* build sessions
+   can only pick one. Change the question type to Checkboxes.
+2. **The rules and privacy consent checkbox is missing.** The privacy page
+   states that members agree to the rules and privacy notice, and there is
+   currently no recorded consent. Add a required checkbox linking to
+   `/conduct` and `/privacy`.
+3. **Age bands were collapsed** from six to four (Under 18 / 18-24 / 25-34 /
+   35+). Collecting less is consistent with the privacy design and the
+   safeguards are binary at 18, so this is acceptable, with one caveat: WhatsApp
+   and Google both require users to be 13 or older, so an "Under 13" band is
+   operationally useful for knowing whether someone can be added to the group
+   at all.
 
 ## DNS
 
