@@ -10,8 +10,8 @@ export function Header() {
         </Link>
         <nav className="site-nav" aria-label="Main">
           <Link href="/#about">About</Link>
-          <Link href="/#formats">Formats</Link>
-          <Link href="/#event">Next meetup</Link>
+          <Link href="/#who">Who it&rsquo;s for</Link>
+          <Link href="/#faq">FAQ</Link>
           <Link href="/conduct">Conduct</Link>
           <Link href="/privacy">Privacy</Link>
         </nav>

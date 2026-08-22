@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { audience } from "@/content/community";
 
 const topics = [
@@ -17,7 +18,11 @@ const topics = [
   "personal projects",
 ];
 
-export function Audience() {
+/**
+ * Section 2: who belongs here. Audience, the range of topics, and a one-line
+ * pointer to the full conduct policy instead of repeating the rules list.
+ */
+export function WhoItsFor() {
   return (
     <section className="container section" id="who">
       <p className="mono-label section-head">Who it is for</p>
@@ -36,6 +41,10 @@ export function Audience() {
           <li key={topic}>{topic}</li>
         ))}
       </ul>
+      <p className="lede safety-note">
+        A short, enforced set of rules keeps this comfortable for everyone.{" "}
+        <Link href="/conduct">Read the conduct and safety policy.</Link>
+      </p>
     </section>
   );
 }

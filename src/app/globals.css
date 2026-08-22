@@ -44,6 +44,24 @@ a {
   color: inherit;
 }
 
+/* Static noise texture, ~3% opacity. No animation, no interaction, and it
+   never intercepts a click. */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .grain {
+    display: none;
+  }
+}
+
 :focus-visible {
   outline: 3px solid var(--signal-red);
   outline-offset: 4px;
@@ -302,11 +320,6 @@ svg {
   flex: none;
 }
 
-.brand-mark__chapter {
-  color: var(--signal-red);
-  font-weight: 700;
-}
-
 @media (max-width: 400px) {
   .brand-mark__wordmark {
     width: 132px;
@@ -390,6 +403,13 @@ svg {
   color: var(--steel-grey);
   max-width: 52ch;
   margin: 0 0 clamp(2rem, 4vw, 2.75rem);
+}
+
+.founder-note {
+  font-size: 0.9rem;
+  color: var(--steel-grey);
+  max-width: 46ch;
+  margin: 0 0 clamp(1.75rem, 3.5vw, 2.5rem);
 }
 
 .hero__actions {
@@ -495,6 +515,26 @@ svg {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+}
+
+.safety-note {
+  margin-top: 2.25rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--hairline);
+  max-width: 60ch;
+}
+
+/* Inline link must not rely on colour alone (WCAG 1.4.1). */
+.safety-note a {
+  color: var(--warm-white);
+  text-decoration: underline;
+  text-decoration-color: var(--signal-red);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.safety-note a:hover {
+  text-decoration-color: var(--warm-white);
 }
 
 .topics li {
@@ -735,6 +775,16 @@ svg {
   margin: 0 0 1.5rem;
   color: var(--steel-grey);
   max-width: 62ch;
+}
+
+.faq__closing {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  padding-top: clamp(2rem, 4vw, 2.75rem);
+  border-top: 1px solid var(--hairline);
+}
+
+.faq__closing .lede {
+  margin-bottom: 1.5rem;
 }
 
 /* --- Closing -------------------------------------------------------------- */

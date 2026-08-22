@@ -6,7 +6,7 @@ test("visitor understands and reaches both forms", async ({ page }) => {
   await expect(
     page.getByRole("heading", { name: "Kanpur, come talk tech with us." }),
   ).toBeVisible();
-  await expect(page.getByText("Sunday, September 6, 2026")).toBeVisible();
+  await expect(page.getByText("Sun 06 Sep 2026", { exact: false })).toBeVisible();
   await expect(
     page.getByRole("link", { name: "Attend the first meetup" }).first(),
   ).toHaveAttribute("href", "https://lu.ma/rsvp-test");

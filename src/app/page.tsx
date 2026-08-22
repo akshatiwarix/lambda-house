@@ -1,16 +1,9 @@
-import { Audience } from "@/components/audience";
-import { Closing } from "@/components/closing";
 import { EventBanner } from "@/components/event-banner";
-import { EventFormats } from "@/components/event-formats";
 import { Faq } from "@/components/faq";
-import { GuidelinesPreview } from "@/components/guidelines-preview";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
-import { Hero } from "@/components/hero";
-import { NextEvent } from "@/components/next-event";
-import { RunOfShow } from "@/components/run-of-show";
-import { Story } from "@/components/story";
-import { nextEvent } from "@/content/community";
+import { WhatItIs } from "@/components/what-it-is";
+import { WhoItsFor } from "@/components/who-its-for";
 import { getPublicLinks } from "@/lib/public-links";
 
 export default function Home() {
@@ -24,19 +17,9 @@ export default function Home() {
       <EventBanner rsvpUrl={links.rsvpFormUrl} />
       <Header />
       <main id="main-content">
-        <Hero links={links} />
-        <Story />
-        <Audience />
-        <EventFormats />
-        <RunOfShow />
-        <NextEvent
-          event={nextEvent}
-          rsvpUrl={links.rsvpFormUrl}
-          joinUrl={links.joinFormUrl}
-        />
-        <GuidelinesPreview />
-        <Faq />
-        <Closing links={links} />
+        <WhatItIs links={links} />
+        <WhoItsFor />
+        <Faq links={links} />
       </main>
       <Footer links={links} />
     </>
