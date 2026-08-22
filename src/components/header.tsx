@@ -9,9 +9,9 @@ export function Header() {
           <BrandMark />
         </Link>
         <nav className="site-nav" aria-label="Main">
-          <a href="/#about">About</a>
-          <a href="/#formats">Formats</a>
-          <a href="/#event">Next meetup</a>
+          <Link href="/#about">About</Link>
+          <Link href="/#formats">Formats</Link>
+          <Link href="/#event">Next meetup</Link>
           <Link href="/conduct">Conduct</Link>
           <Link href="/privacy">Privacy</Link>
         </nav>
