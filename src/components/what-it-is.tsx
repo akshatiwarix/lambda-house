@@ -23,6 +23,7 @@ export function WhatItIs({ links }: { links: PublicLinks }) {
       <h1 className="hero__title">{community.hero}</h1>
       <p className="hero__story">{community.story}</p>
       <p className="hero__story-sign">{community.storySignature}</p>
+      <p className="hero__story-ps">{community.storyPostscript}</p>
       <div className="hero__actions">
         <a
           className="btn btn-primary"
