@@ -303,8 +303,13 @@ svg {
   color: var(--warm-white);
 }
 
-@media (max-width: 480px) {
-  .meetup-badge__meta {
+/* Measured: the full string needs 494px, and a 390px phone leaves the pill
+   350px - so below 600px it sheds the time, the city, and "on Luma" rather
+   than wrapping to a second line. 600 and not 480 because the full string
+   does not actually fit until ~534px; the old 480 breakpoint let it wrap
+   through the whole 481-600 band. */
+@media (max-width: 600px) {
+  .meetup-badge__rest {
     display: none;
   }
 }
