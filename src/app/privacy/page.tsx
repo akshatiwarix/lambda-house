@@ -5,7 +5,7 @@ import { community } from "@/content/community";
 import { getPublicLinks } from "@/lib/public-links";
 
 export const metadata: Metadata = {
-  title: "Privacy | Lambda House Kanpur",
+  title: "Privacy | Lambda House",
   description:
     "What Lambda House collects, why, who can see it, how long it is kept, and how to have it deleted.",
 };

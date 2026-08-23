@@ -4,7 +4,9 @@ const WHATSAPP_COMMUNITY_URL = "https://chat.whatsapp.com/El6ybbYnyhL90MMudkbV1G
 
 test("visitor understands the community and can join it", async ({ page }) => {
   await page.goto("/");
-  await expect(page).toHaveTitle(/Lambda House Kanpur/);
+  // The title carries the community, not the chapter. Kanpur still appears
+  // in the description, the meetup badge, and the event name.
+  await expect(page).toHaveTitle(/^Lambda House \| /);
   await expect(
     page.getByRole("heading", { name: "Bringing people together to talk tech" }),
   ).toBeVisible();
