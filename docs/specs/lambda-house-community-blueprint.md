@@ -116,16 +116,13 @@ New members receive a personal welcome and an invitation to share what currently
 
 Version one is a single responsive landing page. Its job is to help a visitor understand Lambda House, see the next meetup, RSVP, and join the community.
 
-Page structure:
+The eight-part structure originally planned here was built and then cut down. What shipped is three sections, and `docs/site.md` is the authoritative description of it:
 
-1. Opening section with the name, promise, September 6 meetup, and two calls to action.
-2. The organizer’s honest reason for starting the community.
-3. Who the community is for, including non-coding examples of technology.
-4. The tech hangout and build-together formats.
-5. The next-event card with date, time, venue, cost, capacity, accessibility, and expectations.
-6. Community norms.
-7. Frequently asked questions covering experience, age, cost, projects, attending alone, and language.
-8. Final invitation to RSVP and join WhatsApp.
+1. Hero: the meetup badge linking to Luma, the headline, the organizer’s honest reason for starting the community in his own words, and one call to action into WhatsApp.
+2. Who the community is for, including non-coding examples of technology.
+3. Frequently asked questions covering age, projects, attending alone, and language.
+
+The event formats, the next-event card, the community-norms list, and the closing invitation were removed rather than never written. Event specifics live on the Luma page the badge links to, and the norms live on `/conduct`, so the landing page states each thing once. The formats are still defined in `src/content/community.ts` and are not rendered anywhere.
 
 Version one excludes accounts, member profiles, a blog, project directory, custom event software, and behavioural analytics. These can be reconsidered only when observed member behaviour creates a clear need.
 

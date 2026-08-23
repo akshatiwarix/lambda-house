@@ -144,7 +144,8 @@ Post only where the subreddit rules allow it. Check each one first.
 
 | Placeholder | Source |
 | --- | --- |
-| `[WEBSITE URL]` | https://www.thelambdahouse.com |
-| `[JOIN FORM URL]` | Google Form, see `01-external-resources.md` |
-| `[RSVP URL]` | Luma event, see `01-external-resources.md` |
+| `[WEBSITE URL]` | https://lambda-house.vercel.app until the domain is connected, then https://www.thelambdahouse.com — see `11-domain-setup.md` |
+| `[JOIN FORM URL]` | Google Form, see `01-external-resources.md`. Note the website no longer links it; the site sends people straight to WhatsApp |
+| `[WHATSAPP URL]` | https://chat.whatsapp.com/El6ybbYnyhL90MMudkbV1G — the Community link, publishable |
+| `[RSVP URL]` | https://luma.com/3sew60e5 |
 | `[EXACT VENUE NAME AND MAP LINK]` | `07-venue-and-budget.md`, only once booked |

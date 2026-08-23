@@ -45,7 +45,9 @@ New groups appear only after repeated activity proves one is needed.
 - Only admins post in Announcements.
 - At least two trusted admins once a second organizer is confirmed.
 - Approve joining requests individually.
-- **Never post a public invite link**, on the website or anywhere else.
+- **The Community invite link is the only link that may be published.** The
+  group and the channel invite links are never posted anywhere, on the website
+  or otherwise. See the update note at the top of this file.
 - Two-step verification enabled on admin accounts.
 
 ## How people get in
@@ -55,8 +57,11 @@ New groups appear only after repeated activity proves one is needed.
 3. They get the welcome message from `04-launch-copy.md`.
 4. They are asked what they are curious about right now.
 
-The invite link never goes on a public page. This keeps the group out of spam
-scrapers and keeps membership traceable to a real joining-form response.
+This is the flow for anyone who arrives through the join form. Most people now
+arrive the other way, straight from the website's "Join Lambda House" button
+into the Community, where the admission gate is the Community's own approval
+rather than a form response. The group and channel links stay unpublished so
+neither can be scraped directly.
 
 ## What belongs in the group
 
@@ -87,4 +92,6 @@ breaking it is grounds for immediate removal.
 - [ ] Announcement channel created, admin-post only.
 - [ ] Two-step verification on the admin account.
 - [ ] Join requests set to individual approval.
-- [ ] Invite link confirmed absent from the website and every public post.
+- [x] Community invite link published on the site, by explicit decision.
+- [ ] Group and channel invite links confirmed absent from the website and
+      every public post.

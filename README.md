@@ -1,57 +1,94 @@
-# Lambda House
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="public/brand/lambda-house-wordmark-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="public/brand/lambda-house-wordmark-warm.svg">
+    <img src="public/brand/lambda-house-wordmark-warm.svg" alt="Lambda House" width="420">
+  </picture>
+</p>
 
-A home for people curious about technology. First chapter: Kanpur (`λ / KNP`).
+<p align="center">
+  <strong>A home for people curious about technology.</strong><br>
+  First chapter: Kanpur.
+</p>
 
-This repository holds the public website and the non-sensitive community
-operating documents for Lambda House.
+---
 
-## Requirements
+## What this is
 
-- Node.js 22 or newer (developed on Node 26).
-- npm.
+Lambda House is a community for people who like talking about technology. Not a
+course, not a startup, not a networking event. Just people who find this stuff
+interesting, in a room together.
 
-## Commands
+You do not need to write code. You do not need a job in tech, a degree, or
+anything to show. Curiosity is genuinely the only requirement, and the site
+says so because it is true.
 
-    npm run dev            # local development server
-    npm run build          # production build
-    npm run start          # serve the production build
-    npm run lint           # eslint
-    npm run typecheck      # tsc --noEmit
-    npm run test:unit      # vitest
-    npm run test:e2e       # playwright (desktop + mobile chromium)
-    npm run test           # unit then e2e
+The first meetup is **Sunday, 6 September 2026, 4:00–6:00 PM, in Kanpur**. It
+is free.
 
-## Environment variables
+## The website
 
-Four public URLs are required. Real values live in `.env.local` locally and in
-Vercel project settings for preview and production. They are never committed.
+<p align="center">
+  <img src="docs/screenshot-home.png" alt="The Lambda House homepage: a red lambda and blinking cursor above the headline 'Bringing people together to talk tech', a short note from the organizer, and a red Join Lambda House button." width="900">
+</p>
 
-    NEXT_PUBLIC_JOIN_FORM_URL   # Google Form: join the community
-    NEXT_PUBLIC_RSVP_FORM_URL   # Luma: RSVP for the next event
-    NEXT_PUBLIC_SOCIAL_URL      # https://www.instagram.com/thelambdahouse
-    NEXT_PUBLIC_SITE_URL        # https://www.thelambdahouse.com
+Three pages, and that is the whole thing:
 
-The build fails if any value is missing or is not HTTPS. Placeholder or dummy
-links must never be shipped.
+- **Home** — what Lambda House is, who it is for, and the questions people ask
+  before deciding to come.
+- **[Conduct and safety](src/app/conduct/page.tsx)** — ten rules, enforced.
+  They are what make an open-to-everyone room actually comfortable.
+- **[Privacy](src/app/privacy/page.tsx)** — what gets collected, by whom, and
+  for how long.
 
-## Registration split
+It collects nothing. No analytics, no cookies, no trackers, no accounts, no
+database. Signing up happens on WhatsApp and Luma, which are ordinary services
+run by other people, and the privacy page says exactly that.
 
-- **Join** (ongoing community interest, WhatsApp invites) uses a Google Form.
-  Contact details are optional.
-- **RSVP** (dated events) uses a Luma calendar. Luma always collects an email
-  address; this is disclosed on the privacy page.
+## This repository
 
-## Documents
+The website, plus the community's operating documents — how events run, what
+the rules are, how moderation works, what the brand is.
 
-- Blueprint: `docs/specs/lambda-house-community-blueprint.md`
-- Operations documents: `docs/operations/`
-- Blank tracker templates: `templates/`
+| Where | What |
+| --- | --- |
+| [`docs/site.md`](docs/site.md) | Exactly what is on the site right now. Start here. |
+| [`docs/operations/`](docs/operations/) | Running the community: forms, WhatsApp, venue, safety, the first event. |
+| [`docs/specs/`](docs/specs/) | The blueprint, and the original build plans kept as history. |
+| [`docs/brand-logo-pack.md`](docs/brand-logo-pack.md) | The wordmark, colours, and how to use them. |
+| [`templates/`](templates/) | Blank trackers. |
 
-## Rules for this repository
+No real member, prospect, incident, or private venue information is ever kept
+in here. Those live in a private spreadsheet.
 
-- No analytics, cookies, ad trackers, accounts, member profiles, database, or
-  custom form backend.
-- No real member, prospect, incident, venue-negotiation, or private contact data
-  in Git. Those records stay in the private operating spreadsheet.
-- The public WhatsApp invite link is never published on the website.
-- The `λ / KNP` chapter mark is a temporary identifier, not a final logo.
+## Running it locally
+
+Needs Node.js 22 or newer.
+
+    npm install
+    npm run dev
+
+Other commands:
+
+    npm run build       # production build
+    npm run lint        # eslint
+    npm run typecheck   # tsc --noEmit
+    npm run test        # unit tests, then browser tests
+
+You will also need a `.env.local` with four public URLs. They are never
+committed, and the build refuses to start without them, so a placeholder link
+cannot reach the live site by accident.
+
+    NEXT_PUBLIC_SITE_URL        # the site's own address
+    NEXT_PUBLIC_SOCIAL_URL      # Instagram
+    NEXT_PUBLIC_JOIN_FORM_URL   # Google Form
+    NEXT_PUBLIC_RSVP_FORM_URL   # Luma, optional — the meetup badge hides without it
+
+[`docs/site.md`](docs/site.md) has the current values and the details.
+
+## Come along
+
+- **[Join on WhatsApp](https://chat.whatsapp.com/El6ybbYnyhL90MMudkbV1G)**
+- **[RSVP for the first meetup](https://luma.com/3sew60e5)**
+- **[Instagram](https://www.instagram.com/thelambdahouse)**
+- Email: joinlambdahouse@gmail.com

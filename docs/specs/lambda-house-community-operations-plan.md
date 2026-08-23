@@ -4,7 +4,7 @@
 
 **Goal:** Create the operating materials, external community surfaces, outreach system, venue readiness, and event-day process needed to launch Lambda House Kanpur #01 on September 6, 2026.
 
-**Architecture:** Keep community operations deliberately small: one public website, one branded social page, two Google Forms, one WhatsApp conversation group, one announcement channel, and one private tracker. Claude Code creates the documents and templates; Akshat performs external account actions, approves public posts, chooses the venue, controls member data, and hosts the event.
+**Architecture:** Keep community operations deliberately small: one public website, one branded social page, one Google Form for joining, one Luma calendar for event RSVPs, one WhatsApp Community wrapping a conversation group and an announcement channel, and one private tracker. Claude Code creates the documents and templates; Akshat performs external account actions, approves public posts, chooses the venue, controls member data, and hosts the event.
 
 **Tech Stack:** Markdown, CSV, Google Forms, WhatsApp, Instagram, personal LinkedIn, Reddit, Google Sheets or a local spreadsheet, Vercel receipts from the digital plan
 
