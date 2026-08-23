@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { getPublicLinks } from "@/lib/public-links";
 import { bodyFont, displayFont, monoFont } from "@/styles/fonts";
 import "./globals.css";
@@ -48,6 +49,7 @@ export default function RootLayout({
             or animating anything. */}
         <div className="grain" aria-hidden="true" />
         {children}
+        <Analytics />
       </body>
     </html>
   );
