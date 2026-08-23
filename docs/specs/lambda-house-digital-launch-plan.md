@@ -1,3 +1,11 @@
+> **Historical.** This is the build plan that was executed to create the
+> website, kept as a record of how it was made and why. It is not a description
+> of the current site and should not be used as one: the homepage has since
+> been cut from eight sections to three, the header lost its navigation links,
+> the temporary `λ / KNP` chapter mark was replaced by the real wordmark, and
+> the WhatsApp Community link is now published deliberately. For what is
+> actually live, read `docs/site.md`.
+
 # Lambda House digital launch implementation plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox syntax for tracking.

@@ -1,3 +1,12 @@
+> **Historical.** The briefing that started this project, kept as a record of
+> the original instructions. It has been carried out. Several of its working
+> rules were later overridden by explicit decisions: a real wordmark replaced
+> the temporary chapter mark, and the WhatsApp Community invite link is now
+> published on the site. The "Read first" paths below point at files on
+> Akshat's machine that are not part of this repository; the blueprint they
+> refer to lives at `docs/specs/lambda-house-community-blueprint.md`. For the
+> current state of the site, read `docs/site.md`.
+
 # Claude Code handoff for Lambda House
 
 You are building and preparing the launch of Lambda House, an open technology community beginning in Kanpur.

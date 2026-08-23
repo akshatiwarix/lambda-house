@@ -35,19 +35,24 @@ This pack translates the selected quiet wordmark into editable SVG geometry. It 
 
 ## Website setup
 
-Copy this folder into the website's public assets and use:
+The files above live at `public/brand/` and are the source of truth for the
+marks. The website itself does not link to them.
 
-```html
-<link rel="icon" href="/brand/lambda-house-favicon.svg" type="image/svg+xml" />
-<link rel="icon" href="/brand/favicon.ico" sizes="32x32" />
-<link rel="apple-touch-icon" href="/brand/lambda-house-favicon-180.png" />
+**The wordmark is inlined**, not loaded as an image. `src/components/wordmark.tsx`
+carries the same paths and the same `16 / 3` box, drawn with
+`stroke="currentColor"` so it takes the colour of the text around it. That is
+what lets one component serve both the warm-white header and any future light
+background without shipping a second asset. Recolouring to warm white on carbon
+is the sanctioned reversed treatment.
 
-<img
-  src="/brand/lambda-house-wordmark-transparent.svg"
-  alt="Lambda House"
-  width="320"
-  height="60"
-/>
-```
+**The icons use Next.js file conventions**, not `<link>` tags. `src/app/icon.svg`,
+`src/app/favicon.ico`, and `src/app/apple-icon.png` are picked up by the
+framework and emitted with the right tags and cache-busting hashes
+automatically. Adding manual `<link rel="icon">` tags would duplicate them.
 
-Keep the rendered wordmark's aspect ratio at `16 / 3`. Set either its width or height in CSS and leave the other dimension automatic.
+If you do reference a mark as an image somewhere else, keep the rendered aspect
+ratio at `16 / 3`: set either width or height in CSS and leave the other
+automatic.
+
+Anything in this pack changing means changing `wordmark.tsx` to match. The
+geometry is currently identical in both places.

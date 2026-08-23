@@ -14,13 +14,13 @@ predicted, and no placeholder is ever promoted to a public message.
 
 | Service | Display name | Owner | Public URL | Created | Recovery owner | 2FA | Publishable | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Domain (GoDaddy) | thelambdahouse.com | Akshat | https://www.thelambdahouse.com | 2026-08-23 | Akshat | required | yes | confirmed (DNS not yet pointed at Vercel) |
-| Vercel | lambda-house | Akshat (`akshat-tiwarix`) | assigned at first deploy | — | Akshat | required | yes | pending |
-| GitHub | akshatiwarix/lambda-house | Akshat | https://github.com/akshatiwarix/lambda-house | 2026-08-23 | Akshat | required | yes | pending push |
+| Domain (GoDaddy) | thelambdahouse.com | Akshat | https://www.thelambdahouse.com | 2026-08-23 | Akshat | required | yes | **bought, not connected — see `11-domain-setup.md`** |
+| Vercel | lambda-house | Akshat (`akshat-tiwarix`) | https://lambda-house.vercel.app | 2026-08-23 | Akshat | required | yes | confirmed, deploying from `main` |
+| GitHub | akshatiwarix/lambda-house | Akshat | https://github.com/akshatiwarix/lambda-house | 2026-08-23 | Akshat | required | yes | confirmed, CI green on `main` |
 | Instagram | @thelambdahouse | Akshat | https://www.instagram.com/thelambdahouse | 2026-08-23 | Akshat | required | yes | pending confirmation |
 | Google account | joinlambdahouse@gmail.com | Akshat | — | 2026-08-23 | Akshat | required | no | pending |
-| Google Form — join | Join Lambda House | joinlambdahouse@gmail.com | https://forms.gle/AWaG97XPs3LoUaXW9 | 2026-08-23 | Akshat | inherited | yes | confirmed (see open items) |
-| Luma calendar | Lambda House | joinlambdahouse@gmail.com | — | — | Akshat | required | yes | deferred to ~Aug 30 |
+| Google Form — join | Join Lambda House | joinlambdahouse@gmail.com | https://forms.gle/AWaG97XPs3LoUaXW9 | 2026-08-23 | Akshat | inherited | yes | confirmed, **not linked from the site** |
+| Luma event | Lambda House Kanpur #01 | joinlambdahouse@gmail.com | https://luma.com/3sew60e5 | 2026-08-23 | Akshat | required | yes | confirmed, live on the site |
 | WhatsApp Community | Lambda House | Akshat | https://chat.whatsapp.com/El6ybbYnyhL90MMudkbV1G | 2026-08-23 | Akshat | two-step on | **yes, by explicit decision** | confirmed |
 | WhatsApp group (within the Community) | Lambda House · Tech Chat | Akshat | not individually advertised | — | Akshat | two-step on | no | pending |
 | WhatsApp channel (within the Community) | Lambda House · Announcements | Akshat | not individually advertised | — | Akshat | two-step on | no | pending |
@@ -49,12 +49,20 @@ The website build fails unless all four are real and HTTPS:
 | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | https://www.thelambdahouse.com | confirmed |
 | `NEXT_PUBLIC_SOCIAL_URL` | https://www.instagram.com/thelambdahouse | confirmed |
-| `NEXT_PUBLIC_JOIN_FORM_URL` | https://forms.gle/AWaG97XPs3LoUaXW9 | confirmed, verified signed-out |
-| `NEXT_PUBLIC_RSVP_FORM_URL` | — | intentionally empty until the Luma event exists |
+| `NEXT_PUBLIC_JOIN_FORM_URL` | https://forms.gle/AWaG97XPs3LoUaXW9 | confirmed, but nothing on the site renders it |
+| `NEXT_PUBLIC_RSVP_FORM_URL` | https://luma.com/3sew60e5 | confirmed, live |
 
 `NEXT_PUBLIC_RSVP_FORM_URL` is the one optional variable. While it is empty the
-site promotes joining and states that RSVP opens later. Set it to the real Luma
-URL when the event goes up, then redeploy.
+meetup badge does not render at all. It is now set, so the badge is live.
+
+`NEXT_PUBLIC_JOIN_FORM_URL` is still required by the build but is no longer
+used by any page: the "Join Lambda House" button points straight at the
+WhatsApp Community. Either link the form from somewhere or drop the variable
+from `getPublicLinks`, so a required value is not left with no purpose.
+
+`NEXT_PUBLIC_SITE_URL` is set to the domain that is **not connected yet**. Until
+it is, the canonical tag, the sitemap, and every social preview image point at
+an address that does not answer. See `11-domain-setup.md`.
 
 ## Open items on the join form
 
@@ -76,9 +84,10 @@ Verified live on 2026-08-23. Three deviations from `02-form-specifications.md`:
 
 ## DNS
 
-`www.thelambdahouse.com` is canonical; the apex redirects to it. Records are
-added in the GoDaddy DNS panel by Akshat after the Vercel project exists, using
-the exact values Vercel prints. Nothing is guessed.
+`www.thelambdahouse.com` is canonical; the apex redirects to it. The Vercel
+project exists, so this is unblocked and outstanding. Full steps, including the
+GoDaddy parking records that have to be edited rather than added around, are in
+`11-domain-setup.md`. Use the exact values Vercel prints. Nothing is guessed.
 
 ## Verification checklist
 
@@ -89,6 +98,7 @@ the exact values Vercel prints. Nothing is guessed.
 - [ ] Luma guest list is set to hidden.
 - [ ] Instagram URL opens publicly.
 - [ ] The published WhatsApp link is the Community link (`.../El6ybbYnyhL90MMudkbV1G`), not a bare group or channel invite.
-- [ ] Vercel production URL recorded above.
+- [x] Vercel production URL recorded above.
 - [ ] Reporting contact is controlled by Akshat.
-- [ ] No placeholder URL remains in this file.
+- [x] No placeholder URL remains in this file.
+- [ ] Custom domain connected and serving (`11-domain-setup.md`).
