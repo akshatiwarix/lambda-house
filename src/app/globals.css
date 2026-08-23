@@ -440,6 +440,29 @@ svg {
   gap: 0.85rem;
 }
 
+/* The quieter way in, for people who do not want to hand a phone number to a
+   group chat before they know what this is. Deliberately small: it should be
+   findable by someone looking for it, not competing with the button above. */
+.hero__alt {
+  margin: 1rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--steel-grey);
+}
+
+/* Same treatment as the conduct link: never colour alone (WCAG 1.4.1). */
+.hero__alt a {
+  color: var(--warm-white);
+  text-decoration: underline;
+  text-decoration-color: var(--signal-red);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
+  transition: text-decoration-color var(--press) ease;
+}
+
+.hero__alt a:hover {
+  text-decoration-color: var(--warm-white);
+}
+
 /* --- Audience ------------------------------------------------------------- */
 
 /* Fixed column counts so an incomplete final row never leaves a dead cell. */
