@@ -44,11 +44,6 @@ export default function ConductPage() {
               <li key={rule}>{rule}</li>
             ))}
           </ol>
-
-          <p className="policy__disclaimer">
-            This page describes Lambda House’s operating practice and is not
-            legal advice.
-          </p>
         </article>
       </main>
       <Footer links={links} />
