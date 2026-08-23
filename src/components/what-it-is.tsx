@@ -7,6 +7,11 @@ import { NextMeetupBadge } from "./next-meetup-badge";
  * words, and one action. Event specifics (date, venue, capacity) live on the
  * Luma page linked from the badge above the headline - not duplicated here,
  * and not a full-width strip pinned above the whole page anymore either.
+ *
+ * The form sits under the button rather than beside it. Handing a phone
+ * number to a stranger's group chat is a real barrier, and the people most
+ * likely to feel it are the ones the conduct policy exists for. This is a way
+ * in that costs less, without competing with the action we actually want.
  */
 export function WhatItIs({ links }: { links: PublicLinks }) {
   return (
@@ -28,6 +33,12 @@ export function WhatItIs({ links }: { links: PublicLinks }) {
           Join Lambda House
         </a>
       </div>
+      <p className="hero__alt">
+        Not on WhatsApp?{" "}
+        <a href={links.joinFormUrl} target="_blank" rel="noreferrer">
+          Leave your details instead.
+        </a>
+      </p>
     </section>
   );
 }
