@@ -367,29 +367,6 @@ svg {
   }
 }
 
-.site-nav {
-  display: flex;
-  align-items: center;
-  gap: clamp(0.9rem, 2.5vw, 1.75rem);
-  flex-wrap: wrap;
-}
-
-.site-nav a {
-  font-family: var(--font-mono), monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--steel-grey);
-  text-decoration: none;
-  padding-block: 0.25rem;
-  border-bottom: 1px solid transparent;
-}
-
-.site-nav a:hover {
-  color: var(--warm-white);
-  border-bottom-color: var(--signal-red);
-}
-
 /* --- Hero ----------------------------------------------------------------- */
 
 .hero {
