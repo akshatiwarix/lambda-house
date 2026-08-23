@@ -431,6 +431,15 @@ svg {
 .hero__story-sign {
   font-size: 0.9rem;
   color: var(--warm-white);
+  margin: 0 0 0.35rem;
+}
+
+/* A credit rather than part of the story, so it sits after the signature the
+   way a postscript does. Upright against the italic prose above, and quieter
+   than the name it follows. */
+.hero__story-ps {
+  font-size: 0.8125rem;
+  color: var(--steel-grey);
   margin: 0 0 clamp(2rem, 4vw, 2.75rem);
 }
 

@@ -19,6 +19,7 @@ export const community = {
   story:
     "I wanted people in Kanpur I could talk tech with. So I am starting the group I was looking for. Meet people who can talk about technology for hours, discover interesting things together, and occasionally build something great. Lambda House exists because I love technology and just wanted to talk to people without turning every conversation into formal networking. Most groups are built around one platform or one subject. This is built around the people instead. Come for the conversation, stay because you found someone worth talking to.",
   storySignature: "— Akshat",
+  storyPostscript: "P.S. This idea was inspired by a friend of mine.",
   contactEmail: "joinlambdahouse@gmail.com",
   whatsappUrl: "https://chat.whatsapp.com/El6ybbYnyhL90MMudkbV1G",
 } as const;
