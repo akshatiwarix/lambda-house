@@ -81,17 +81,9 @@ export const communityRules = [
 
 export const faqs: Faq[] = [
   {
-    question: "Do I need to know how to code?",
-    answer: "No. If technology makes you curious, you belong here.",
-  },
-  {
     question: "Can school students attend?",
     answer:
       "Yes. Lambda House is open to every age, and anyone may attend independently.",
-  },
-  {
-    question: "Is it free?",
-    answer: "Yes. The first tech hangout is free.",
   },
   {
     question: "Do I need to bring a project?",
@@ -99,12 +91,11 @@ export const faqs: Faq[] = [
   },
   {
     question: "Can I attend alone?",
-    answer:
-      "Yes. Most people are coming to meet someone new, and the opening round makes joining a conversation easier.",
+    answer: "Yes. Most people come to meet someone new.",
   },
   {
     question: "What language will people speak?",
     answer:
-      "Use whichever of Hindi or English makes the conversation comfortable. Technical terms can stay in the language people normally use for them.",
+      "Use whichever of Hindi or English makes the conversation comfortable.",
   },
 ];

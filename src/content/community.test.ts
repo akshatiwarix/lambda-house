@@ -16,7 +16,7 @@ describe("community content", () => {
       "Keep conversation related to technology.",
     );
     expect(
-      faqs.some((item) => item.question === "Do I need to know how to code?"),
+      faqs.some((item) => item.question === "Can I attend alone?"),
     ).toBe(true);
   });
 
