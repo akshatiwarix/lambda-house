@@ -38,37 +38,87 @@ the wrong one of the two.
 1. Go to https://vercel.com/akshat-tiwarix/lambda-house/settings/domains
 2. Enter `www.thelambdahouse.com` and add it. Choose the option that makes it
    the primary domain.
-3. Enter `thelambdahouse.com` and add it. When Vercel offers to redirect it,
-   point it at `www.thelambdahouse.com` with a 307 or 308.
+3. Enter only **one** of the two. Leave "Redirect apex domains to www"
+   checked and Vercel expands it into both, so entering both rows is rejected
+   with "Domain overlaps another row after adding apex and www variants".
+   Set "Connect to an environment" to Production.
+
+Vercel ends up with `www.thelambdahouse.com` on Production and
+`thelambdahouse.com` issuing a 308 to it, which is what was wanted.
 
 Vercel now shows a "Invalid Configuration" warning and the exact DNS records it
 wants. Leave this tab open. **Copy the values it prints rather than the values
 below** — Vercel hands different projects different CNAME targets, and the
 dashboard is the only authority on yours.
 
-## Step 2 — Add the records at GoDaddy
+## What is on the domain right now
 
-Go to the DNS panel for `thelambdahouse.com` at GoDaddy. You need two records.
-As of this writing Vercel's published values are:
+Checked 2026-08-23:
+
+| Record | Current value | What it is |
+| --- | --- | --- |
+| Nameservers | `ns53.domaincontrol.com`, `ns54.domaincontrol.com` | GoDaddy's own, so DNS is managed in the GoDaddy panel |
+| `A` on `@` | `3.33.130.190` **and** `15.197.148.33` | Two records, both GoDaddy parking |
+| `CNAME` on `www` | `thelambdahouse.com` | Points back at the apex, so `www` parks too |
+| `CAA` | none | Good. A wrong `CAA` would stop Vercel issuing a certificate |
+| `MX` | none | No email on this domain, so there is nothing to preserve |
+| `TXT` | none | Nothing to preserve |
+
+So both records you need already exist with the wrong values. This is an edit
+job, not an add job, and there is nothing else on the domain worth protecting.
+
+## Step 2 — Replace the records at GoDaddy
+
+Go to the DNS panel for `thelambdahouse.com` at GoDaddy. You are changing the
+three records above into these two:
+
+These are the values Vercel issued for this project on 2026-08-23:
 
 | Type | Name | Value | TTL |
 | --- | --- | --- | --- |
-| `A` | `@` | `76.76.21.21` | 600 or the lowest offered |
-| `CNAME` | `www` | `cname.vercel-dns-0.com` | 600 or the lowest offered |
+| `A` | `@` | `216.198.79.1` | 600, or the lowest GoDaddy offers |
+| `CNAME` | `www` | `b7494d8ce686732a.vercel-dns-017.com` | 600, or the lowest offered |
 
-Again: if the Vercel tab shows a different CNAME target, Vercel's is right.
+Both differ from the values Vercel publishes in its general documentation, which
+are `76.76.21.21` and `cname.vercel-dns-0.com`. Vercel is expanding its IP range
+and issues each project its own CNAME target; its own panel says the legacy
+records still work, but there is no reason to use them. **The dashboard is the
+authority. If it ever shows something different from the table above, the
+dashboard is right.**
+
+Enter the CNAME **without** the trailing dot. Vercel displays it as
+`b7494d8ce686732a.vercel-dns-017.com.`; GoDaddy adds the dot itself.
+
+Order of operations:
+
+1. **Delete one** of the two `A` records on `@`, and **edit the other** to
+   `216.198.79.1`. You must end with exactly one `A` record on `@`. Leaving both
+   parking addresses in place alongside Vercel's would send roughly two out of
+   three visitors to the parking page, and it would look intermittent rather
+   than broken.
+2. **Edit the `www` CNAME** from `thelambdahouse.com` to the Vercel target.
+   Do not add a second one.
 
 Two things that go wrong here:
 
-- **GoDaddy parking records.** A new domain usually ships with its own `A` record
-  on `@` pointing at GoDaddy's parking page, and often a `CNAME` on `www`. Edit
-  those existing records rather than adding a second set. Two `A` records on `@`
-  will send visitors to the parking page about half the time.
-- **Do not add a trailing dot or the full domain in the Name field.** GoDaddy
-  wants `@` and `www`, not `thelambdahouse.com` and `www.thelambdahouse.com`.
+- **GoDaddy Domain Forwarding.** Those parking addresses are what GoDaddy's
+  forwarding and parking feature uses. If forwarding is switched on for this
+  domain, GoDaddy will put its own records back and quietly undo your work.
+  Find it under the domain's settings and turn it off **before** editing DNS.
+- **The Name field takes `@` and `www`**, not `thelambdahouse.com` and
+  `www.thelambdahouse.com`, and no trailing dot.
 
-Leave every unrelated record alone, particularly `MX` records if email is ever
-set up on this domain.
+## Alternative: hand DNS to Vercel entirely
+
+Instead of Steps 2, you can change the nameservers at GoDaddy to
+`ns1.vercel-dns.com` and `ns2.vercel-dns.com`. Vercel then manages every record
+and configures the site itself, so there is nothing to copy by hand.
+
+It is the better option if you expect to add more records later, and the worse
+one if you ever want email or another service on this domain managed at
+GoDaddy, because the GoDaddy DNS panel stops being the place records live.
+For one website and no email, the two records above are simpler and easier to
+undo. Nameserver changes also take longer to propagate.
 
 ## Step 3 — Wait, then verify
 
@@ -78,10 +128,15 @@ there is a refresh button.
 
 From a terminal:
 
-    dig www.thelambdahouse.com +short
-    dig thelambdahouse.com +short
+    dig +short thelambdahouse.com A
+    dig +short www.thelambdahouse.com
 
-The first should return a Vercel CNAME target, the second `76.76.21.21`.
+The first should return `216.198.79.1` **and nothing else**. If either
+`3.33.130.190` or `15.197.148.33` still appears, a parking record survived the
+edit, or GoDaddy forwarding put it back.
+
+The second should return `b7494d8ce686732a.vercel-dns-017.com.` rather than
+`thelambdahouse.com.`.
 
 ## Step 4 — Confirm the certificate
 
