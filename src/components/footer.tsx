@@ -21,7 +21,7 @@ export function Footer({ links }: { links: PublicLinks }) {
           <a href={community.whatsappUrl} target="_blank" rel="noreferrer">
             WhatsApp
           </a>
-          <a href={`mailto:${community.contactEmail}`}>Contact</a>
+          <a href={`mailto:${community.contactEmail}`}>Email Us</a>
         </nav>
       </div>
     </footer>

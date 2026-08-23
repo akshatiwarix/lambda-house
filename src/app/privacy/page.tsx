@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { EventBanner } from "@/components/event-banner";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { community } from "@/content/community";
@@ -19,7 +18,6 @@ export default function PrivacyPage() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <EventBanner rsvpUrl={links.rsvpFormUrl} />
       <Header />
       <main id="main-content">
         <article className="container policy">

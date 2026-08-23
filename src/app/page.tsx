@@ -1,4 +1,3 @@
-import { EventBanner } from "@/components/event-banner";
 import { Faq } from "@/components/faq";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
@@ -14,10 +13,9 @@ export default function Home() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <EventBanner rsvpUrl={links.rsvpFormUrl} />
       <Header />
       <main id="main-content">
-        <WhatItIs />
+        <WhatItIs links={links} />
         <WhoItsFor />
         <Faq />
       </main>

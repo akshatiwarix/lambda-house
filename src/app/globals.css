@@ -106,6 +106,9 @@ svg {
   gap: 0.75rem;
   margin: 0 0 2.5rem;
   color: var(--steel-grey);
+  /* Bumped up from the base .mono-label size - next to a large heading, the
+     default caption size read as an afterthought rather than a label. */
+  font-size: 0.875rem;
 }
 
 .section-head::before {
@@ -192,31 +195,33 @@ svg {
   background: rgba(245, 242, 234, 0.06);
 }
 
-/* --- Event banner --------------------------------------------------------- */
+/* --- Next-meetup badge -----------------------------------------------------
+   A small pill above the hero headline, not a strip pinned above the page. */
 
-.event-banner {
-  display: flex;
+.meetup-badge {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  width: 100%;
-  background: var(--surface);
-  border-bottom: 1px solid var(--hairline);
-  padding: 0.7rem 1.25rem;
+  gap: 0.5rem;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem 0.4rem 0.65rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
   font-family: var(--font-mono), monospace;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-decoration: none;
-  transition: background-color 0.2s ease;
+  transition:
+    border-color 0.18s ease,
+    background-color 0.18s ease;
 }
 
-.event-banner:hover {
-  background: #141414;
+.meetup-badge:hover {
+  border-color: var(--signal-red);
+  background: rgba(255, 42, 26, 0.06);
 }
 
-.event-banner__pulse {
-  width: 8px;
-  height: 8px;
+.meetup-badge__pulse {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--signal-red);
   flex: none;
@@ -235,43 +240,33 @@ svg {
   }
 }
 
-.event-banner__label {
+.meetup-badge__label {
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   font-weight: 700;
   color: var(--warm-white);
 }
 
-.event-banner__divider {
-  color: var(--steel-grey);
-  opacity: 0.5;
-}
-
-.event-banner__meta {
+.meetup-badge__meta {
   color: var(--steel-grey);
 }
 
-.event-banner__cta {
+.meetup-badge__cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
   font-weight: 700;
   color: var(--signal-red);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
 
-.event-banner:hover .event-banner__cta {
+.meetup-badge:hover .meetup-badge__cta {
   color: var(--warm-white);
 }
 
-@media (max-width: 640px) {
-  .event-banner {
-    font-size: 0.6875rem;
-    gap: 0.5rem;
-    padding: 0.6rem 1rem;
-  }
-  .event-banner__divider {
+@media (max-width: 480px) {
+  .meetup-badge__meta {
     display: none;
   }
 }
@@ -291,6 +286,15 @@ svg {
   gap: 1.5rem;
   flex-wrap: wrap;
   padding-block: 1.1rem;
+}
+
+/* Small red lambda, purely decorative - balances the wordmark on the left. */
+.site-header__glyph {
+  font-family: var(--font-mono), monospace;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--signal-red);
+  line-height: 1;
 }
 
 .sr-only {
@@ -388,21 +392,30 @@ svg {
 .hero__title {
   font-family: var(--font-display), sans-serif;
   font-weight: 700;
-  font-size: clamp(2.75rem, 10.5vw, 8rem);
-  line-height: 0.88;
-  letter-spacing: -0.035em;
-  margin: 0 0 clamp(1.5rem, 3vw, 2.25rem);
-  max-width: 14ch;
+  font-size: clamp(2.25rem, 6.5vw, 4.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin: 0 0 clamp(1.25rem, 2.5vw, 1.75rem);
+  max-width: 16ch;
   text-wrap: balance;
 }
 
 /* One small paragraph in the founder's voice. Sized between .lede and a
    caption on purpose - present, not a pull quote. */
+/* Reads like a message rather than marketing copy: italic body, the
+   signature on its own line underneath rather than run into the prose. */
 .hero__story {
+  font-style: italic;
   font-size: 0.95rem;
   line-height: 1.65;
   color: var(--steel-grey);
   max-width: 62ch;
+  margin: 0 0 0.5rem;
+}
+
+.hero__story-sign {
+  font-size: 0.9rem;
+  color: var(--warm-white);
   margin: 0 0 clamp(2rem, 4vw, 2.75rem);
 }
 
@@ -453,7 +466,8 @@ svg {
   margin-top: 1.5rem;
   font-size: 0.8125rem;
   color: var(--steel-grey);
-  max-width: 60ch;
+  /* The full sentence is ~103 characters; 60ch was forcing an early wrap. */
+  max-width: 92ch;
 }
 
 /* Inline link must not rely on colour alone (WCAG 1.4.1). */
@@ -518,17 +532,20 @@ svg {
 /* --- Footer --------------------------------------------------------------- */
 
 .site-footer {
-  border-top: 1px solid var(--hairline);
-  padding-block: 3rem 3.5rem;
   margin-top: auto;
+  padding-block: 1.75rem;
 }
 
 .site-footer__inner {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1.25rem 2rem;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  /* Scoped to the container's width, not a full-bleed line across the
+     viewport - the divider should only span as wide as the content. */
+  border-top: 1px solid var(--hairline);
+  padding-top: 1.5rem;
 }
 
 .site-footer__links {
@@ -555,12 +572,13 @@ svg {
 .site-footer__copyright {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   gap: 0.65rem;
   color: var(--steel-grey);
   font-size: 0.8rem;
   margin: 0;
-  max-width: 42ch;
+  /* No max-width: the old 42ch cap was forcing a wrap mid-sentence. Left free
+     it sits on one line at any width that can actually fit it, and still
+     wraps normally on a narrow screen instead of overflowing. */
 }
 
 .site-footer__wordmark {
