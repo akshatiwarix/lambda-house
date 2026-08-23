@@ -1,8 +1,14 @@
 # Connecting thelambdahouse.com to Vercel
 
-Status as of 2026-08-23: the domain is **bought and not connected**. The site
-serves from `lambda-house.vercel.app`. Everything below is Akshat's to do; none
-of it can be done from the repository.
+**Done on 2026-08-23.** The site serves on `https://www.thelambdahouse.com`,
+and `thelambdahouse.com` 308s to it. This is kept as the record of what was
+changed and what to check if it ever breaks.
+
+Final state at GoDaddy: one `A` record on `@` to `216.198.79.1`, and a `CNAME`
+on `www` to `b7494d8ce686732a.vercel-dns-017.com`, both at a half-hour TTL. Both
+GoDaddy parking `A` records (`3.33.130.190`, `15.197.148.33`) were removed, and
+the `www` CNAME no longer points back at the apex. The `secureserver.net` email
+and DKIM records were left untouched.
 
 ## Why this is worth doing before any outreach
 

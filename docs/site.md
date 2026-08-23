@@ -9,17 +9,18 @@ Verified against the live production deployment on 2026-08-23.
 
 | Thing | Value |
 | --- | --- |
-| Production | https://lambda-house.vercel.app |
-| Intended public address | https://www.thelambdahouse.com — bought, **not yet pointed at Vercel** |
+| Production | https://www.thelambdahouse.com |
+| Also serves | https://lambda-house.vercel.app, and `thelambdahouse.com` 308s to the `www` address |
 | Repository | https://github.com/akshatiwarix/lambda-house |
 | Vercel project | `lambda-house`, team `akshat-tiwarix`, Node 24.x |
 
-The site is served from the `.vercel.app` address today. `NEXT_PUBLIC_SITE_URL`
-is already set to `https://www.thelambdahouse.com`, so the canonical link tag,
-the sitemap, and every Open Graph and Twitter image URL point at a domain that
-does not answer yet. Anything shared before the domain is connected will link
-somewhere broken. Connecting the domain fixes all of it at once; see
-`operations/11-domain-setup.md`.
+The custom domain was connected on 2026-08-23. `NEXT_PUBLIC_SITE_URL` matches
+it, so the canonical link tag, the sitemap, and every Open Graph and Twitter
+image URL resolve. Link previews work.
+
+DNS lives at GoDaddy: one `A` record on the apex to `216.198.79.1`, and a
+`CNAME` on `www` to a project-specific Vercel target. `operations/11-domain-setup.md`
+has the values and what to check if it ever breaks.
 
 ## Pages
 
@@ -27,9 +28,9 @@ Three, and no more:
 
 | Path | Title | What it is |
 | --- | --- | --- |
-| `/` | Lambda House Kanpur \| Come talk tech with us | The whole pitch |
-| `/conduct` | Conduct and safety | Ten numbered rules |
-| `/privacy` | Privacy | What is collected, by whom, and for how long |
+| `/` | Lambda House \| Come talk tech with us | The whole pitch |
+| `/conduct` | Conduct and safety \| Lambda House | Ten numbered rules |
+| `/privacy` | Privacy \| Lambda House | What is collected, by whom, and for how long |
 
 `robots.ts` permits indexing and points at the sitemap. `sitemap.ts` emits
 exactly those three paths.

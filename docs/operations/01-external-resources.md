@@ -14,7 +14,7 @@ predicted, and no placeholder is ever promoted to a public message.
 
 | Service | Display name | Owner | Public URL | Created | Recovery owner | 2FA | Publishable | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Domain (GoDaddy) | thelambdahouse.com | Akshat | https://www.thelambdahouse.com | 2026-08-23 | Akshat | required | yes | **bought, not connected — see `11-domain-setup.md`** |
+| Domain (GoDaddy) | thelambdahouse.com | Akshat | https://www.thelambdahouse.com | 2026-08-23 | Akshat | required | yes | confirmed, serving — connected 2026-08-23 |
 | Vercel | lambda-house | Akshat (`akshat-tiwarix`) | https://lambda-house.vercel.app | 2026-08-23 | Akshat | required | yes | confirmed, deploying from `main` |
 | GitHub | akshatiwarix/lambda-house | Akshat | https://github.com/akshatiwarix/lambda-house | 2026-08-23 | Akshat | required | yes | confirmed, CI green on `main` |
 | Instagram | @thelambdahouse | Akshat | https://www.instagram.com/thelambdahouse | 2026-08-23 | Akshat | required | yes | pending confirmation |
@@ -60,9 +60,10 @@ used by any page: the "Join Lambda House" button points straight at the
 WhatsApp Community. Either link the form from somewhere or drop the variable
 from `getPublicLinks`, so a required value is not left with no purpose.
 
-`NEXT_PUBLIC_SITE_URL` is set to the domain that is **not connected yet**. Until
-it is, the canonical tag, the sitemap, and every social preview image point at
-an address that does not answer. See `11-domain-setup.md`.
+`NEXT_PUBLIC_SITE_URL` matches the domain the site actually serves on, so the
+canonical tag, the sitemap, and social preview images all resolve. If the
+canonical address ever changes, this value has to change in Vercel **and** the
+site has to be redeployed; it is read at build time.
 
 ## Open items on the join form
 
@@ -101,4 +102,4 @@ GoDaddy parking records that have to be edited rather than added around, are in
 - [x] Vercel production URL recorded above.
 - [ ] Reporting contact is controlled by Akshat.
 - [x] No placeholder URL remains in this file.
-- [ ] Custom domain connected and serving (`11-domain-setup.md`).
+- [x] Custom domain connected and serving (`11-domain-setup.md`).
