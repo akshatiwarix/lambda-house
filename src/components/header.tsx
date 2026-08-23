@@ -8,13 +8,9 @@ export function Header() {
         <Link href="/" aria-label="Lambda House home">
           <BrandMark />
         </Link>
-        <nav className="site-nav" aria-label="Main">
-          <Link href="/#about">About</Link>
-          <Link href="/#formats">Formats</Link>
-          <Link href="/#event">Next meetup</Link>
-          <Link href="/conduct">Conduct</Link>
-          <Link href="/privacy">Privacy</Link>
-        </nav>
+        <span className="site-header__glyph" aria-hidden="true">
+          λ
+        </span>
       </div>
     </header>
   );

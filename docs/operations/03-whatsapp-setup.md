@@ -3,6 +3,17 @@
 WhatsApp is the community's living room. Two surfaces, no maze of topic groups.
 New groups appear only after repeated activity proves one is needed.
 
+> **Update, 2026-08-23:** the blueprint's original "never post a public invite
+> link" guidance below was written for a bare group invite, which has no
+> admission gate at all. Akshat has since set up Lambda House as a **WhatsApp
+> Community** (the umbrella around the group and channel below) and made an
+> explicit, informed decision to publish the Community's own invite link
+> directly on the site and its footer. This is a deliberate override of the
+> rule below for that one link, not a reversal of it — the underlying group
+> and channel are still not individually advertised, and the reasoning in
+> "How people get in" still describes the intended day-to-day flow for anyone
+> who arrives through the join form instead.
+
 ## Main group
 
 **Name**

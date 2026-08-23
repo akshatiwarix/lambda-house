@@ -42,7 +42,13 @@ export default function RootLayout({
       lang="en"
       className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {/* Fixed grain, no motion. A quiet nod to the analog/uncertain
+            texture of schemasofuncertainty.com without touching legibility
+            or animating anything. */}
+        <div className="grain" aria-hidden="true" />
+        {children}
+      </body>
     </html>
   );
 }

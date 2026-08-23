@@ -15,10 +15,12 @@ export const community = {
   descriptor: "A home for people curious about technology.",
   chapter: "Kanpur",
   chapterMark: "λ / KNP",
-  promise:
-    "Meet people who can talk about technology for hours, discover interesting things together, and occasionally make something.",
-  hero: "Kanpur, come talk tech with us.",
+  hero: "Bringing people together to talk tech",
+  story:
+    "I wanted people in Kanpur I could talk tech with. So I am starting the group I was looking for. Meet people who can talk about technology for hours, discover interesting things together, and occasionally build something great. Lambda House exists because I love technology and just wanted to talk to people without turning every conversation into formal networking. Most groups are built around one platform or one subject. This is built around the people instead. Come for the conversation, stay because you found someone worth talking to.",
+  storySignature: "— Akshat",
   contactEmail: "joinlambdahouse@gmail.com",
+  whatsappUrl: "https://chat.whatsapp.com/El6ybbYnyhL90MMudkbV1G",
 } as const;
 
 export const nextEvent = {
@@ -79,17 +81,9 @@ export const communityRules = [
 
 export const faqs: Faq[] = [
   {
-    question: "Do I need to know how to code?",
-    answer: "No. If technology makes you curious, you belong here.",
-  },
-  {
     question: "Can school students attend?",
     answer:
       "Yes. Lambda House is open to every age, and anyone may attend independently.",
-  },
-  {
-    question: "Is it free?",
-    answer: "Yes. The first tech hangout is free.",
   },
   {
     question: "Do I need to bring a project?",
@@ -97,12 +91,11 @@ export const faqs: Faq[] = [
   },
   {
     question: "Can I attend alone?",
-    answer:
-      "Yes. Most people are coming to meet someone new, and the opening round makes joining a conversation easier.",
+    answer: "Yes. Most people come to meet someone new.",
   },
   {
     question: "What language will people speak?",
     answer:
-      "Use whichever of Hindi or English makes the conversation comfortable. Technical terms can stay in the language people normally use for them.",
+      "Use whichever of Hindi or English makes the conversation comfortable.",
   },
 ];
