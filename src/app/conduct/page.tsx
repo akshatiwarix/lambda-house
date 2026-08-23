@@ -4,7 +4,7 @@ import { Header } from "@/components/header";
 import { getPublicLinks } from "@/lib/public-links";
 
 export const metadata: Metadata = {
-  title: "Conduct and safety | Lambda House Kanpur",
+  title: "Conduct and safety | Lambda House",
   description: "The rules Lambda House runs on.",
 };
 

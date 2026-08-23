@@ -5,7 +5,7 @@ import "./globals.css";
 
 const { siteUrl } = getPublicLinks();
 
-const title = "Lambda House Kanpur | Come talk tech with us";
+const title = "Lambda House | Come talk tech with us";
 const description =
   "An open community for anyone curious about technology. Join the first Lambda House tech hangout in Kanpur on September 6, 2026.";
 const socialImage = "/social/lambda-house-kanpur-001.svg";
