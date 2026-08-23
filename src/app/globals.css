@@ -19,6 +19,15 @@
   --container: 1180px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
   --section-y: clamp(2.5rem, 5vw, 4.5rem);
+
+  /* One curve and three durations for everything that moves. A decelerating
+     curve only: nothing here is gesture-driven, so nothing needs a spring. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --press: 120ms;
+  --reveal: 260ms;
+
+  /* Lets a closed height of 0 animate to auto, which is what the FAQ needs. */
+  interpolate-size: allow-keywords;
 }
 
 * {
@@ -38,6 +47,9 @@ body {
   font-size: 1.0625rem;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  /* Inter and Funnel Display both ship an optical size axis; let the browser
+     use it rather than rendering every size from the same drawing. */
+  font-optical-sizing: auto;
 }
 
 a {
@@ -171,7 +183,14 @@ svg {
   transition:
     background-color 0.18s ease,
     color 0.18s ease,
-    border-color 0.18s ease;
+    border-color 0.18s ease,
+    transform var(--press) var(--ease-out);
+}
+
+/* Acknowledge the press itself, not the release. Small enough to read as the
+   surface giving way rather than as the button moving. */
+.btn:active {
+  transform: scale(0.97);
 }
 
 /* Black text on signal red, per the approved contrast rules. */
@@ -211,7 +230,13 @@ svg {
   text-decoration: none;
   transition:
     border-color 0.18s ease,
-    background-color 0.18s ease;
+    background-color 0.18s ease,
+    transform var(--press) var(--ease-out);
+}
+
+/* Wider target than a button, so less scale reads as the same amount of give. */
+.meetup-badge:active {
+  transform: scale(0.985);
 }
 
 .meetup-badge:hover {
@@ -220,23 +245,36 @@ svg {
 }
 
 .meetup-badge__pulse {
+  position: relative;
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: var(--signal-red);
   flex: none;
-  animation: event-pulse 2s ease infinite;
+}
+
+/* Same halo as before, on its own layer. The previous version animated
+   box-shadow, which repaints the badge every frame for as long as the page
+   stays open; transform and opacity stay on the compositor. Geometry is
+   unchanged: a 7px dot growing an 8px ring is a scale of 3.3. */
+.meetup-badge__pulse::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--signal-red);
+  animation: event-pulse 2s var(--ease-out) infinite;
 }
 
 @keyframes event-pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(255, 42, 26, 0.6);
+    opacity: 0.6;
+    transform: scale(1);
   }
-  70% {
-    box-shadow: 0 0 0 8px rgba(255, 42, 26, 0);
-  }
+  70%,
   100% {
-    box-shadow: 0 0 0 0 rgba(255, 42, 26, 0);
+    opacity: 0;
+    transform: scale(3.3);
   }
 }
 
@@ -444,6 +482,29 @@ svg {
   border-bottom: 1px solid var(--hairline);
 }
 
+/* Each cell drives its own scroll timeline, so rows arrive as they reach the
+   viewport instead of the whole block appearing at once. No JavaScript and no
+   observer: browsers without scroll-driven animations simply render the grid,
+   which is the current behaviour. */
+@keyframes cell-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .audience-grid li {
+      animation-name: cell-rise;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+  }
+}
+
 @media (max-width: 900px) {
   .audience-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -477,6 +538,7 @@ svg {
   text-decoration-color: var(--signal-red);
   text-decoration-thickness: 1.5px;
   text-underline-offset: 2px;
+  transition: text-decoration-color var(--press) ease;
 }
 
 .safety-note a:hover {
@@ -529,6 +591,25 @@ svg {
   max-width: 62ch;
 }
 
+/* An answer used to appear in one frame, shoving every question below it down
+   with no bridge. This animates the disclosure itself, so the list stays
+   readable while it reflows. Browsers without ::details-content ignore the
+   whole block and keep today's instant open. */
+.faq__item::details-content {
+  block-size: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition:
+    block-size var(--reveal) var(--ease-out),
+    opacity var(--reveal) var(--ease-out),
+    content-visibility var(--reveal) allow-discrete;
+}
+
+.faq__item[open]::details-content {
+  block-size: auto;
+  opacity: 1;
+}
+
 /* --- Footer --------------------------------------------------------------- */
 
 .site-footer {
@@ -562,6 +643,9 @@ svg {
   color: var(--steel-grey);
   text-decoration: none;
   border-bottom: 1px solid transparent;
+  transition:
+    color var(--press) ease,
+    border-bottom-color var(--press) ease;
 }
 
 .site-footer__links a:hover {
@@ -663,6 +747,7 @@ svg {
   text-decoration-color: var(--signal-red);
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
+  transition: text-decoration-color var(--press) ease;
 }
 
 .policy a:hover {
@@ -680,6 +765,18 @@ svg {
   font-size: 0.9rem;
 }
 
+/* --- Contrast preference ---------------------------------------------------
+   Hairlines carry most of this layout's structure, so raise them rather than
+   introducing new borders. */
+
+@media (prefers-contrast: more) {
+  :root {
+    --hairline: rgba(245, 242, 234, 0.42);
+    --hairline-strong: rgba(245, 242, 234, 0.7);
+    --steel-grey: #c9ccd4;
+  }
+}
+
 /* --- Motion preferences --------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
@@ -695,5 +792,12 @@ svg {
   }
   .hero__cursor {
     opacity: 1;
+  }
+  /* Reduced motion means gentler, not absent. The answer still cross-fades so
+     the change stays legible; it just no longer travels. */
+  .faq__item::details-content {
+    block-size: auto;
+    transition-property: opacity, content-visibility !important;
+    transition-duration: 160ms !important;
   }
 }
