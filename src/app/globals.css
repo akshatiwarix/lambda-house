@@ -331,13 +331,14 @@ svg {
   padding-block: 1.1rem;
 }
 
-/* Small red lambda, purely decorative - balances the wordmark on the left. */
+/* Small red lambda link to the homepage - balances the wordmark on the left. */
 .site-header__glyph {
   font-family: var(--font-mono), monospace;
   font-size: 1.375rem;
   font-weight: 700;
   color: var(--signal-red);
   line-height: 1;
+  text-decoration: none;
 }
 
 .sr-only {

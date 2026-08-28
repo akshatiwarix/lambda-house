@@ -8,9 +8,9 @@ export function Header() {
         <Link href="/" aria-label="Lambda House home">
           <BrandMark />
         </Link>
-        <span className="site-header__glyph" aria-hidden="true">
+        <Link href="/" className="site-header__glyph" aria-label="Lambda House home">
           λ
-        </span>
+        </Link>
       </div>
     </header>
   );
